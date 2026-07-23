@@ -1,0 +1,14 @@
+.git
+.DS_Store
+
+frontend/node_modules
+frontend/dist
+frontend/.vite
+
+backend/tmp
+backend/bin
+backend/logs
+backend/uploads
+backend/storage
+
+**/.env

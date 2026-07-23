@@ -1,0 +1,17 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    image: inventory-management-frontend:latest
+    container_name: inventory_frontend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    networks:
+      - inventory_network
+
+networks:
+  inventory_network:
+    name: inventory_network
+    driver: bridge

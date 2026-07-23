@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    image: inventory-management-backend:latest
+    container_name: inventory_backend
+    restart: unless-stopped
+    environment:
+      APP_ENV: production
+      SERVER_PORT: 3000
+      JWT_SECRET: change-me
+      DB_HOST: inventory_db_postgres
+      DB_PORT: 5432
+      DB_USER: inventory_user
+      DB_PASSWORD: inventory_password
+      DB_NAME: inventory_db
+      DB_SSLMODE: disable
+    ports:
+      - "3000:3000"
+    networks:
+      - inventory_network
+
+networks:
+  inventory_network:
+    name: inventory_network
+    driver: bridge
